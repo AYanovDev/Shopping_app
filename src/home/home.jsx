@@ -3,11 +3,11 @@ import { HomeImg } from "./home-img";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  useEffect(() => {
-    //  fetch("https://fakestoreapi.in/api/products/category")
-    //    .then((res) => res.json())
-    //    .then((res) => console.log(res));
-  }, []);
+  //   useEffect(() => {
+  //     fetch(`https://fakestoreapi.in/api/products/category?type=audio`)
+  //       .then((res) => res.json())
+  //       .then((res) => console.log(res));
+  //   }, []);
 
   return (
     <>
