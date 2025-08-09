@@ -6,15 +6,22 @@ export default function Goods() {
   const { goodsId } = useParams();
   const { data, error, loading } = useCategoryData(goodsId);
 
-  if (loading) {
-    return null;
+  function renderCards() {
+    if (loading) {
+      return null;
+    }
+    if (error) {
+      return <p>Server Error!</p>;
+    }
+    return data.products.map((e) => {
+      return <ProductCard product={e} key={e.id} />;
+    });
   }
-  if (error) {
-    return <p>Server Error!</p>;
-  }
-  return data.products.map((e) => {
-    return <ProductCard product={e} key={e.id} />;
-  });
+  return (
+    <div className="flex flex-wrap place-items-center gap-8 place-content-around p-24">
+      {renderCards()}
+    </div>
+  );
 }
 
 function useCategoryData(goodsId) {
