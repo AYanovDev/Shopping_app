@@ -1,4 +1,17 @@
-export default function Header() {
+import { Link } from "react-router-dom";
+
+export default function Header(props) {
+  function renderItemCount() {
+    if (props.itemNum > 0)
+      return (
+        <div className=" absolute left-94/99 bottom-5/10 size-7  animate-bounce">
+          <p className="text-[20px] -translate-y-1/10 translate-x-2/10">
+            {props.itemNum}
+          </p>
+        </div>
+      );
+  }
+
   return (
     <>
       <div className="flex place-content-between">
@@ -12,10 +25,18 @@ export default function Header() {
             Generic Shop
           </h1>
         </div>
-        <div className="flex text-[35px] items-center gap-20 pr-5">
-          <p>Home</p>
-          <p>Categories</p>
-          <p>Shopping Cart</p>
+        <div className="flex relative text-[35px] items-center gap-20 pr-5">
+          <Link to={"/"}>
+            <button className="headerButtons">Home</button>
+          </Link>
+          <Link>
+            <button className="headerButtons">Categories</button>
+          </Link>
+          <Link to={"/shoppingCart"}>
+            <button className="headerButtons">Shopping Cart</button>
+          </Link>
+
+          {renderItemCount()}
         </div>
       </div>
     </>

@@ -6,3 +6,7 @@
   justify-content: space-between;
   min-height: 100vh;
 }
+
+.headerButtons {
+  @apply hover:border-1 hover:rounded-2xl duration-200 p-2 pl-3 pr-3 hover:cursor-pointer;
+}
